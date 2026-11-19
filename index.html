@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urology Lab | Genitourinary Learning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">✚</span>
+      UROLOGY LAB
+    </a>
+
+    <nav>
+      <button class="nav-btn active" data-page="home">Home</button>
+      <button class="nav-btn" data-page="simulation">Simulation</button>
+      <button class="nav-btn" data-page="notes">Mini Notes</button>
+      <button class="nav-btn" data-page="quiz">Mini Quiz</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HOME PAGE -->
+    <section id="home" class="page active">
+
+      <div class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">YOUR GENITOURINARY LEARNING SPACE</p>
+          <h1>Understand Your
+            <span>Urinary System.</span>
+          </h1>
+          <p>
+            Explore urine flow, understand urinary
+            obstruction, and learn about urinary stones
+            through interactive medical education.
+          </p>
+
+          <button class="primary-btn" data-go="simulation">
+            Start Exploring →
+          </button>
+        </div>
+
+        <div class="hero-illustration">
+          <div class="kidney-symbol">🫘</div>
+          <p>Explore. Understand. Diagnose.</p>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <p class="eyebrow">LEARNING MODULES</p>
+        <h2>Explore Your Learning Journey</h2>
+      </div>
+
+      <div class="module-grid">
+
+        <article class="module-card purple">
+          <span class="module-icon">🩺</span>
+          <h3>Urine Flow Simulation</h3>
+          <p>Explore normal urine flow and urinary obstruction.</p>
+          <button data-go="simulation">Explore Module →</button>
+        </article>
+
+        <article class="module-card pink">
+          <span class="module-icon">📚</span>
+          <h3>Urinary Stone Notes</h3>
+          <p>Learn about stone types, pathogenesis, and clinical features.</p>
+          <button data-go="notes">Read Notes →</button>
+        </article>
+
+        <article class="module-card yellow">
+          <span class="module-icon">🧠</span>
+          <h3>Knowledge Check</h3>
+          <p>Test your understanding through interactive questions.</p>
+          <button data-go="quiz">Take Quiz →</button>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- SIMULATION PAGE -->
+    <section id="simulation" class="page">
+
+      <div class="page-heading">
+        <p class="eyebrow">INTERACTIVE LEARNING</p>
+        <h1>Urine Flow Simulation</h1>
+        <p>Explore how urine travels through the urinary system.</p>
+      </div>
+
+      <div class="simulation-controls">
+        <button id="normalBtn" class="mode-btn active">
+          Normal Flow
+        </button>
+
+        <button id="obstructionBtn" class="mode-btn">
+          Insert Obstruction
+        </button>
+      </div>
+
+      <div class="simulation-layout">
+
+        <div class="anatomy-panel">
+
+          <div class="flow-status" id="flowStatus">
+            ● NORMAL URINE FLOW
+          </div>
+
+          <div class="urinary-diagram">
+
+            <button class="organ" data-organ="kidney">
+              🫘
+              <span>Kidney</span>
+            </button>
+
+            <div class="urine-flow">↓</div>
+
+            <button class="organ" data-organ="ureter">
+              <span id="stone">│</span>
+              <span>Ureter</span>
+            </button>
+
+            <div class="urine-flow">↓</div>
+
+            <button class="organ" data-organ="bladder">
+              🫧
+              <span>Urinary Bladder</span>
+            </button>
+
+            <div class="urine-flow">↓</div>
+
+            <button class="organ" data-organ="urethra">
+              │
+              <span>Urethra</span>
+            </button>
+
+          </div>
+
+          <p class="diagram-caption">
+            Select an organ to learn about its function.
+          </p>
+        </div>
+
+        <div class="info-panel">
+          <p class="eyebrow">ANATOMY EXPLORER</p>
+          <h2 id="organTitle">Kidney</h2>
+          <p id="organDescription">
+            The kidneys filter blood, regulate fluid and
+            electrolyte balance, and produce urine.
+          </p>
+
+          <div class="clinical-box">
+            <strong>Clinical Insight</strong>
+            <p id="clinicalInsight">
+              Normal urine flow begins with filtration
+              in the kidneys.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pathophysiology-panel">
+        <p class="eyebrow">PATHOPHYSIOLOGY</p>
+        <h2 id="pathTitle">Normal Urine Flow</h2>
+        <p id="pathDescription">
+          Urine flows from the kidneys through the ureters,
+          enters the urinary bladder, and exits through
+          the urethra.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- MINI NOTES PAGE -->
+    <section id="notes" class="page">
+
+      <div class="page-heading">
+        <p class="eyebrow">STUDY MATERIAL</p>
+        <h1>Urinary Stone Mini Notes</h1>
+        <p>High-yield concepts for your Genitourinary Block.</p>
+      </div>
+
+      <div class="notes-grid">
+
+        <article class="note-card">
+          <span class="note-number">01</span>
+          <h3>Calcium Oxalate</h3>
+          <p>
+            The most common type of urinary stone.
+            Associated with hypercalciuria,
+            hyperoxaluria, and hypocitraturia.
+          </p>
+          <div class="clinical-box">
+            <strong>Microscopic appearance</strong>
+            <p>Envelope-shaped or dumbbell-shaped crystals.</p>
+          </div>
+        </article>
+
+        <article class="note-card">
+          <span class="note-number">02</span>
+          <h3>Uric Acid</h3>
+          <p>
+            Associated with acidic urine,
+            hyperuricosuria, and increased uric acid
+            concentration.
+          </p>
+          <div class="clinical-box">
+            <strong>Microscopic appearance</strong>
+            <p>Rhomboid or rosette-shaped crystals.</p>
+          </div>
+        </article>
+
+        <article class="note-card">
+          <span class="note-number">03</span>
+          <h3>Struvite</h3>
+          <p>
+            Composed of magnesium ammonium phosphate.
+            Associated with urease-producing bacteria.
+          </p>
+          <div class="clinical-box">
+            <strong>Microscopic appearance</strong>
+            <p>Coffin-lid shaped crystals.</p>
+          </div>
+        </article>
+
+        <article class="note-card">
+          <span class="note-number">04</span>
+          <h3>Cystine</h3>
+          <p>
+            Associated with cystinuria, an inherited
+            defect in renal tubular amino acid transport.
+          </p>
+          <div class="clinical-box">
+            <strong>Microscopic appearance</strong>
+            <p>Hexagonal-shaped crystals.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="pathophysiology-panel">
+        <p class="eyebrow">CLINICAL PEARLS</p>
+        <h2>Remember These!</h2>
+        <ul>
+          <li>Colicky flank pain radiating to the groin is typical of ureteric stones.</li>
+          <li>Hematuria may occur in patients with urinary stones.</li>
+          <li>Struvite stones are associated with urease-producing bacteria.</li>
+          <li>Urine pH is an important factor in stone formation.</li>
+          <li>Non-contrast CT is a highly sensitive imaging modality for urinary stones in adults.</li>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- MINI QUIZ PAGE -->
+    <section id="quiz" class="page">
+
+      <div class="page-heading">
+        <p class="eyebrow">TEST YOUR KNOWLEDGE</p>
+        <h1>Mini Quiz</h1>
+        <p>Let's see how much you understand!</p>
+      </div>
+
+      <div class="quiz-card">
+
+        <div class="quiz-progress">
+          <span id="questionCounter">Question 1 / 5</span>
+          <span id="scoreLabel">Score: 0</span>
+        </div>
+
+        <div class="progress-track">
+          <div id="progressBar"></div>
+        </div>
+
+        <h2 id="questionText">Loading question...</h2>
+
+        <div id="answerOptions" class="answer-options"></div>
+
+        <div id="feedback" class="feedback"></div>
+
+        <button id="nextBtn" class="primary-btn" disabled>
+          Next Question →
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>UROLOGY LAB © 2026</p>
+    <p>Learn the science behind every drop.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
