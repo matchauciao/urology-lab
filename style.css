@@ -1,0 +1,518 @@
+
+/* ==================================
+   UROLOGY LAB - DESIGN SYSTEM
+================================== */
+
+:root {
+  --primary: #A059A0;
+  --secondary: #CE6693;
+  --peach: #FAC484;
+  --yellow: #F3E79B;
+
+  --background: #FFFAF8;
+  --white: #FFFFFF;
+  --text: #39313C;
+  --muted: #817783;
+  --border: #F0E5ED;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 7%;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.brand {
+  color: var(--primary);
+  font-size: 21px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.brand-icon {
+  color: var(--secondary);
+  margin-right: 8px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 9px 13px;
+  border-radius: 20px;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: #F3E5F2;
+  color: var(--primary);
+}
+
+/* PAGE NAVIGATION */
+
+.page {
+  display: none;
+  padding: 45px 7%;
+  min-height: 70vh;
+}
+
+.page.active {
+  display: block;
+}
+
+/* HERO */
+
+.hero {
+  background: linear-gradient(120deg, #F1DFF0, #FCE7EC);
+  border-radius: 25px;
+  padding: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 350px;
+}
+
+.eyebrow {
+  color: var(--secondary);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 55px);
+  line-height: 1.15;
+  max-width: 550px;
+}
+
+.hero h1 span {
+  color: var(--primary);
+}
+
+.hero-content > p:not(.eyebrow) {
+  max-width: 480px;
+  margin: 20px 0;
+  color: var(--muted);
+}
+
+.hero-illustration {
+  text-align: center;
+  color: var(--primary);
+}
+
+.kidney-symbol {
+  font-size: 110px;
+}
+
+/* BUTTONS */
+
+.primary-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 13px 23px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.primary-btn:hover {
+  background: #824682;
+  transform: translateY(-2px);
+}
+
+.primary-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* MODULE CARDS */
+
+.section-heading {
+  margin: 55px 0 25px;
+}
+
+.section-heading h2,
+.page-heading h1 {
+  font-size: 30px;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.module-card {
+  padding: 28px;
+  border-radius: 20px;
+  min-height: 230px;
+}
+
+.module-card h3 {
+  margin: 15px 0 8px;
+}
+
+.module-card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.module-card button {
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.purple {
+  background: #F0E1F0;
+}
+
+.pink {
+  background: #F9E4EC;
+}
+
+.yellow {
+  background: #F9F1D0;
+}
+
+.module-icon {
+  font-size: 35px;
+}
+
+/* PAGE HEADING */
+
+.page-heading {
+  margin-bottom: 30px;
+}
+
+.page-heading > p:last-child {
+  color: var(--muted);
+}
+
+/* SIMULATION */
+
+.simulation-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  border: 1px solid var(--primary);
+  background: white;
+  color: var(--primary);
+  padding: 11px 20px;
+  border-radius: 25px;
+}
+
+.mode-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+.simulation-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 22px;
+}
+
+.anatomy-panel,
+.info-panel,
+.pathophysiology-panel,
+.quiz-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+}
+
+.flow-status {
+  color: #368A65;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.flow-status.blocked {
+  color: #C34B57;
+}
+
+.urinary-diagram {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.organ {
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  background: #FCF5FA;
+  color: var(--primary);
+  min-width: 145px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+}
+
+.organ:hover {
+  border-color: var(--primary);
+  background: #F4E6F3;
+}
+
+.organ span:first-child {
+  font-size: 24px;
+}
+
+.urine-flow {
+  color: #368A65;
+  font-size: 25px;
+  padding: 5px;
+}
+
+#stone {
+  color: #C34B57;
+}
+
+.obstruction-mode .urine-flow {
+  color: #C34B57;
+}
+
+.diagram-caption {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.info-panel h2 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.info-panel > p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.clinical-box {
+  background: #F9EEF6;
+  border-left: 4px solid var(--secondary);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.clinical-box p {
+  margin-top: 7px;
+  color: var(--muted);
+}
+
+.pathophysiology-panel {
+  margin-top: 22px;
+}
+
+.pathophysiology-panel h2 {
+  margin-bottom: 10px;
+}
+
+.pathophysiology-panel p,
+.pathophysiology-panel li {
+  color: var(--muted);
+}
+
+.pathophysiology-panel ul {
+  padding-left: 22px;
+}
+
+/* MINI NOTES */
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.note-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 25px;
+}
+
+.note-number {
+  color: var(--secondary);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.note-card h3 {
+  color: var(--primary);
+  margin: 10px 0;
+}
+
+.note-card > p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* QUIZ */
+
+.quiz-card {
+  max-width: 700px;
+  margin: auto;
+}
+
+.quiz-progress {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.progress-track {
+  height: 7px;
+  background: #F0E5ED;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+#progressBar {
+  height: 100%;
+  width: 20%;
+  background: var(--secondary);
+  transition: 0.3s;
+}
+
+.quiz-card h2 {
+  font-size: 20px;
+  margin-bottom: 22px;
+}
+
+.answer-options {
+  display: grid;
+  gap: 12px;
+}
+
+.answer-option {
+  text-align: left;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 12px;
+  color: var(--text);
+}
+
+.answer-option:hover {
+  border-color: var(--primary);
+}
+
+.answer-option.selected {
+  background: #F3E5F2;
+  border-color: var(--primary);
+}
+
+.answer-option.correct {
+  background: #E3F4E9;
+  border-color: #368A65;
+}
+
+.answer-option.wrong {
+  background: #FCE8E8;
+  border-color: #C34B57;
+}
+
+.answer-option:disabled {
+  cursor: default;
+}
+
+.feedback {
+  margin: 20px 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+  background: #F1E5F0;
+  padding: 25px 7%;
+  text-align: center;
+  color: var(--primary);
+  font-size: 12px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 750px) {
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar nav {
+    justify-content: center;
+  }
+
+  .hero {
+    padding: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .module-grid,
+  .notes-grid,
+  .simulation-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 30px 5%;
+  }
+
+  .hero-illustration {
+    align-self: center;
+  }
+}
