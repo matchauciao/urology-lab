@@ -1,0 +1,608 @@
+
+/* =====================================
+   UROLOGY LAB - URINARY DIARY
+   ===================================== */
+
+:root {
+  --primary: #A059A0;
+  --secondary: #CE6693;
+  --peach: #FAC484;
+  --yellow: #F3E79B;
+  --background: #FCF8FC;
+  --text: #382D3B;
+  --muted: #817486;
+  --border: #EDE2EE;
+  --white: #FFFFFF;
+  --shadow: 0 5px 20px rgba(80, 45, 90, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* NAVIGATION */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 7%;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.back-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+  width: min(1100px, 90%);
+  margin: 35px auto 60px;
+}
+
+.page-heading {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: var(--secondary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  margin-bottom: 7px;
+}
+
+.page-heading h1 {
+  font-size: clamp(28px, 4vw, 38px);
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.page-heading > p:last-child {
+  color: var(--muted);
+  max-width: 650px;
+}
+
+/* OVERVIEW CARDS */
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.overview-card {
+  padding: 22px;
+  border-radius: 18px;
+  min-height: 160px;
+  box-shadow: var(--shadow);
+}
+
+.purple-card {
+  background: #F0E4F5;
+}
+
+.pink-card {
+  background: #FBE8EF;
+}
+
+.yellow-card {
+  background: #FFF5D9;
+}
+
+.overview-icon {
+  font-size: 24px;
+}
+
+.overview-card p {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.overview-card strong {
+  display: block;
+  font-size: 27px;
+  margin: 3px 0;
+  color: var(--text);
+}
+
+.overview-card small {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* PANELS */
+
+.panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 27px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow);
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.section-title h2,
+.panel h2 {
+  font-size: 21px;
+  color: var(--text);
+}
+
+.section-emoji {
+  font-size: 28px;
+}
+
+/* FORM */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label,
+.date-filter label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #FFFCFF;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(160, 89, 160, 0.1);
+}
+
+.form-group small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* CHECKBOXES */
+
+.symptom-group {
+  margin: 25px 0;
+  padding: 18px;
+  background: #FCF8FC;
+  border-radius: 13px;
+}
+
+.symptom-group h3 {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.check-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 11px 0;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.check-option input {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  accent-color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* BUTTONS */
+
+.primary-btn,
+.secondary-btn {
+  border: none;
+  border-radius: 11px;
+  padding: 13px 20px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-btn {
+  width: 100%;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.primary-btn:hover {
+  background: #864486;
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: #F0E4F5;
+  color: var(--primary);
+  margin-top: 20px;
+}
+
+.secondary-btn:hover {
+  background: #E8D5EF;
+}
+
+/* DAILY LOG */
+
+.date-filter {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.date-filter input {
+  max-width: 220px;
+}
+
+.daily-log {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.log-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: #FFFCFF;
+}
+
+.log-main {
+  min-width: 0;
+}
+
+.log-main strong {
+  font-size: 14px;
+}
+
+.log-main p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.log-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 9px;
+}
+
+.log-tag {
+  display: inline-block;
+  padding: 4px 9px;
+  background: #FBE8EF;
+  color: #A94D78;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.log-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.log-side strong {
+  font-size: 13px;
+}
+
+.delete-btn {
+  background: #FFF0F0;
+  border: none;
+  color: #C65B68;
+  padding: 6px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.delete-btn:hover {
+  background: #FFE0E0;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* URINE COLOR GUIDE */
+
+.guide-intro {
+  margin: 9px 0 20px;
+  max-width: 760px;
+}
+
+.color-guide {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.urine-swatch {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+
+.urine-swatch.pale {
+  background: #FFF9C4;
+}
+
+.urine-swatch.light {
+  background: #F7E67B;
+}
+
+.urine-swatch.yellow {
+  background: #EFC63F;
+}
+
+.urine-swatch.dark {
+  background: #B88725;
+}
+
+.urine-swatch.unusual {
+  background: linear-gradient(135deg, #B94A4A, #79533C);
+}
+
+.color-item strong {
+  font-size: 13px;
+}
+
+.color-item p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.small-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 18px;
+  line-height: 1.7;
+}
+
+/* WEEKLY SUMMARY */
+
+.weekly-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.stat-card {
+  background: #FCF8FC;
+  border-radius: 12px;
+  padding: 17px;
+}
+
+.stat-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  min-height: 35px;
+}
+
+.stat-card strong {
+  font-size: 23px;
+  color: var(--primary);
+}
+
+/* WEEKLY CHART */
+
+.weekly-chart {
+  height: 180px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  align-items: end;
+  padding: 15px 5px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.chart-day {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  min-width: 0;
+}
+
+.chart-value {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.chart-bar-area {
+  height: 115px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.chart-bar {
+  width: min(30px, 70%);
+  min-height: 3px;
+  background: linear-gradient(
+    180deg,
+    #CE6693,
+    #A059A0
+  );
+  border-radius: 7px 7px 0 0;
+  transition: height 0.3s ease;
+}
+
+.chart-label {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* DISCLAIMER AND FOOTER */
+
+.disclaimer {
+  padding: 18px;
+  background: #FFF5E9;
+  border-radius: 12px;
+  color: #795A3B;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.footer {
+  text-align: center;
+  padding: 22px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 700px) {
+
+  .topbar {
+    padding: 15px 5%;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .back-link {
+    font-size: 12px;
+  }
+
+  .container {
+    width: 92%;
+    margin-top: 25px;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .overview-card {
+    min-height: 130px;
+    padding: 17px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .weekly-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 13px;
+  }
+
+  .stat-card span {
+    min-height: auto;
+  }
+
+  .date-filter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .date-filter input {
+    max-width: 100%;
+  }
+
+  .log-item {
+    gap: 8px;
+  }
+
+  .weekly-chart {
+    gap: 5px;
+  }
+
+  .chart-label {
+    font-size: 9px;
+  }
+
+}
