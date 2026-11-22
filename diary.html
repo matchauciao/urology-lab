@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Catatan Berkemih | Urology Lab</title>
+
+  <link rel="stylesheet" href="css/diary.css">
+  <script src="js/diary.js" defer></script>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="brand">Urology Lab</a>
+    <a href="index.html" class="back-link">← Kembali ke Beranda</a>
+  </header>
+
+  <main class="container">
+
+    <!-- JUDUL HALAMAN -->
+    <section class="page-heading">
+      <p class="eyebrow">KENALI POLA BERKEMIHMU</p>
+      <h1>Catatan Berkemih 🚽</h1>
+      <p>
+        Catat pola berkemih, volume urine, dan gejala yang kamu
+        alami untuk lebih memahami kebiasaan kandung kemihmu.
+      </p>
+    </section>
+
+    <!-- RINGKASAN HARIAN -->
+    <section class="overview-grid">
+
+      <article class="overview-card purple-card">
+        <span class="overview-icon">🚽</span>
+        <p>Frekuensi Berkemih</p>
+        <strong id="todayCount">0</strong>
+        <small>Catatan hari ini</small>
+      </article>
+
+      <article class="overview-card pink-card">
+        <span class="overview-icon">💧</span>
+        <p>Rerata Volume</p>
+        <strong id="averageVolume">—</strong>
+        <small>Dari volume yang diukur</small>
+      </article>
+
+      <article class="overview-card yellow-card">
+        <span class="overview-icon">🌙</span>
+        <p>Episode Nokturia</p>
+        <strong id="nocturiaCount">0</strong>
+        <small>Catatan hari ini</small>
+      </article>
+
+    </section>
+
+    <!-- FORM PENCATATAN -->
+    <section class="panel">
+
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">CATATAN BARU</p>
+          <h2>Catat Waktu Berkemih</h2>
+        </div>
+        <span class="section-emoji">📝</span>
+      </div>
+
+      <form id="diaryForm">
+
+        <div class="form-grid">
+
+          <div>
+            <label for="voidDate">Tanggal</label>
+            <input type="date" id="voidDate" required>
+          </div>
+
+          <div>
+            <label for="voidTime">Waktu berkemih</label>
+            <input type="time" id="voidTime" required>
+          </div>
+
+          <div>
+            <label for="urineVolume">Volume urine (mL)</label>
+            <input
+              type="number"
+              id="urineVolume"
+              min="1"
+              max="2000"
+              placeholder="Opsional"
+            >
+            <small class="field-hint">
+              Isi jika volume urine diukur. Boleh dikosongkan.
+            </small>
+          </div>
+
+          <div>
+            <label for="urineColor">Warna urine</label>
+            <select id="urineColor" required>
+              <option value="Kuning pucat">Kuning pucat</option>
+              <option value="Kuning muda">Kuning muda</option>
+              <option value="Kuning">Kuning</option>
+              <option value="Kuning tua">Kuning tua</option>
+              <option value="Kuning kecokelatan">Kuning kecokelatan</option>
+              <option value="Warna lain / tidak biasa">Warna lain / tidak biasa</option>
+              <option value="Tidak diamati">Tidak diamati</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="urgency">Rasa ingin berkemih mendadak (urgensi)</label>
+            <select id="urgency" required>
+              <option value="Tidak ada">Tidak ada</option>
+              <option value="Ringan">Ringan</option>
+              <option value="Sedang">Sedang</option>
+              <option value="Berat">Berat</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="notes">Catatan tambahan</label>
+            <input
+              type="text"
+              id="notes"
+              maxlength="250"
+              placeholder="Opsional"
+            >
+          </div>
+
+        </div>
+
+        <!-- GEJALA TAMBAHAN -->
+        <div class="symptom-group">
+          <p class="symptom-heading">Gejala tambahan</p>
+
+          <label class="check-option">
+            <input type="checkbox" id="dysuria">
+            <span>Nyeri atau rasa terbakar saat berkemih (disuria)</span>
+          </label>
+
+          <label class="check-option">
+            <input type="checkbox" id="leakage">
+            <span>Kebocoran urine tanpa disengaja (inkontinensia)</span>
+          </label>
+
+          <label class="check-option">
+            <input type="checkbox" id="nocturia">
+            <span>
+              Berkemih setelah terbangun dari tidur untuk buang air kecil
+              (nokturia)
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="primary-btn">
+          + Simpan Catatan Berkemih
+        </button>
+
+      </form>
+
+    </section>
+
+    <!-- RIWAYAT BERKEMIH -->
+    <section class="panel">
+
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">RIWAYAT PENCATATAN</p>
+          <h2>Riwayat Berkemih Harian</h2>
+        </div>
+      </div>
+
+      <div class="date-filter">
+        <label for="filterDate">Lihat catatan berdasarkan tanggal:</label>
+        <input type="date" id="filterDate">
+      </div>
+
+      <div id="dailyLog" class="daily-log">
+        <p class="muted">Belum ada catatan berkemih.</p>
+      </div>
+
+    </section>
+
+    <!-- PANDUAN WARNA URINE -->
+    <section class="panel">
+
+      <p class="eyebrow">EDUKASI KESEHATAN</p>
+      <h2>Panduan Warna Urine 🎨</h2>
+
+      <p class="muted guide-intro">
+        Warna urine dapat memberikan gambaran kasar mengenai
+        konsentrasinya, tetapi tidak dapat digunakan untuk
+        mendiagnosis dehidrasi atau penyakit tertentu.
+      </p>
+
+      <div class="color-guide">
+
+        <div class="color-item">
+          <span class="urine-swatch pale"></span>
+          <div>
+            <strong>Kuning pucat</strong>
+            <p>Sering ditemukan pada kondisi hidrasi yang baik.</p>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <span class="urine-swatch light"></span>
+          <div>
+            <strong>Kuning muda</strong>
+            <p>Dapat ditemukan pada asupan cairan yang memadai.</p>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <span class="urine-swatch yellow"></span>
+          <div>
+            <strong>Kuning</strong>
+            <p>Dapat menunjukkan urine yang lebih terkonsentrasi.</p>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <span class="urine-swatch dark"></span>
+          <div>
+            <strong>Kuning tua / kecokelatan</strong>
+            <p>Dapat berkaitan dengan urine yang lebih pekat.</p>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <span class="urine-swatch unusual"></span>
+          <div>
+            <strong>Merah, cokelat, atau warna tidak biasa</strong>
+            <p>
+              Dapat disebabkan oleh makanan, obat, darah, atau kondisi
+              medis tertentu. Periksakan diri, terutama jika menetap
+              atau disertai gejala lain.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="small-note">
+        Vitamin, makanan, obat-obatan, dan kondisi medis juga dapat
+        memengaruhi warna urine. Warna urine saja tidak cukup untuk
+        menentukan diagnosis.
+      </p>
+
+    </section>
+
+    <!-- RINGKASAN MINGGUAN -->
+    <section class="panel">
+
+      <p class="eyebrow">KENALI POLA BERKEMIHMU</p>
+      <h2>Ringkasan Mingguan 📊</h2>
+
+      <div class="weekly-stats">
+
+        <div class="stat-card">
+          <span>Rerata berkemih per hari</span>
+          <strong id="weeklyAverage">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>Total volume urine terukur</span>
+          <strong id="weeklyVolume">—</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>Hari dengan catatan</span>
+          <strong id="weeklyDays">0 / 7</strong>
+        </div>
+
+      </div>
+
+      <div id="weeklyChart" class="weekly-chart"></div>
+
+      <button id="exportBtn" class="secondary-btn export-btn">
+        ↓ Unduh Catatan 3 Hari Terakhir (CSV)
+      </button>
+
+      <p class="small-note">
+        Catatan selama tiga hari dapat membantu saat berkonsultasi
+        dengan tenaga kesehatan. Ringkasan ini tidak menentukan
+        apakah pola berkemihmu normal atau tidak normal.
+      </p>
+
+    </section>
+
+    <p class="disclaimer">
+      Catatan Berkemih merupakan sarana edukasi dan pemantauan mandiri,
+      bukan alat diagnosis penyakit saluran kemih atau kandung kemih.
+      Segera cari pertolongan medis jika mengalami gejala yang
+      mengkhawatirkan.
+    </p>
+
+  </main>
+
+</body>
+</html>
