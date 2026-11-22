@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hydration Tracker | Urology Lab</title>
+
+  <link rel="stylesheet" href="css/hydration.css">
+  <script src="js/hydration.js" defer></script>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="brand">Urology Lab</a>
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </header>
+
+  <main class="container">
+
+    <section class="page-heading">
+      <p class="eyebrow">YOUR DAILY WELLNESS</p>
+      <h1>Hydration Tracker 💧</h1>
+      <p>
+        Keep track of your daily fluid intake and build
+        healthier hydration habits.
+      </p>
+    </section>
+
+    <!-- PROFILE SETUP -->
+    <section class="panel" id="setupSection">
+      <h2>Let's get to know you!</h2>
+      <p class="muted">
+        Isi profil singkat untuk mendapatkan estimasi target minuman harian.
+      </p>
+
+      <form id="profileForm">
+
+        <label for="age">Usia</label>
+        <input
+          type="number"
+          id="age"
+          min="18"
+          max="120"
+          placeholder="Contoh: 21"
+          required
+        >
+
+        <label for="sex">Kategori referensi biologis</label>
+        <select id="sex" required>
+          <option value="">Pilih kategori</option>
+          <option value="female">Perempuan</option>
+          <option value="male">Laki-laki</option>
+        </select>
+
+        <label for="specialCondition">
+          Apakah ada kondisi khusus berikut?
+        </label>
+        <select id="specialCondition" required>
+          <option value="none">Tidak ada</option>
+          <option value="pregnancy">Sedang hamil</option>
+          <option value="lactation">Sedang menyusui</option>
+          <option value="medical">
+            Penyakit ginjal, jantung, atau hati
+          </option>
+          <option value="restriction">
+            Memiliki pembatasan cairan dari dokter
+          </option>
+        </select>
+
+        <button type="submit" class="primary-btn">
+          Calculate My Target
+        </button>
+
+      </form>
+
+      <p class="small-note">
+        Estimasi ini ditujukan untuk orang dewasa sehat usia 18 tahun
+        ke atas. Jika memiliki kondisi khusus, ikuti rekomendasi dokter.
+      </p>
+    </section>
+
+    <!-- TRACKER SECTION -->
+    <section id="trackerSection" hidden>
+
+      <div class="welcome-row">
+        <div>
+          <p class="eyebrow">YOUR DAILY PROGRESS</p>
+          <h2>Stay Hydrated!</h2>
+          <p id="todayDate" class="muted"></p>
+        </div>
+
+        <button id="editProfileBtn" class="secondary-btn">
+          Edit Profile
+        </button>
+      </div>
+
+      <!-- DAILY PROGRESS -->
+      <section class="panel progress-panel">
+
+        <p class="muted">Today's beverage intake</p>
+
+        <div class="progress-numbers">
+          <h2 id="consumedText">0 mL</h2>
+          <span id="targetText">of 0 mL</span>
+        </div>
+
+        <div class="progress-track">
+          <div id="progressBar" class="progress-fill"></div>
+        </div>
+
+        <p id="progressMessage" class="muted">
+          Start logging your drinks!
+        </p>
+
+        <p class="target-note" id="targetNote"></p>
+
+      </section>
+
+      <!-- ADD DRINK -->
+      <section class="panel">
+
+        <h2>Log Your Drink 🥤</h2>
+        <p class="muted">
+          Pilih volume minuman yang baru saja kamu konsumsi.
+        </p>
+
+        <div class="quick-add">
+          <button class="volume-btn" data-volume="150">150 mL</button>
+          <button class="volume-btn" data-volume="200">200 mL</button>
+          <button class="volume-btn" data-volume="250">250 mL</button>
+          <button class="volume-btn" data-volume="500">500 mL</button>
+        </div>
+
+        <form id="drinkForm">
+
+          <label for="drinkType">Jenis minuman</label>
+          <select id="drinkType">
+            <option value="Air putih">Air putih</option>
+            <option value="Susu">Susu</option>
+            <option value="Teh">Teh</option>
+            <option value="Kopi">Kopi</option>
+            <option value="Jus">Jus</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+
+          <label for="customVolume">Volume (mL)</label>
+          <input
+            type="number"
+            id="customVolume"
+            min="1"
+            max="3000"
+            placeholder="Masukkan volume"
+            required
+          >
+
+          <label for="drinkTime">Waktu minum</label>
+          <input type="time" id="drinkTime" required>
+
+          <button type="submit" class="primary-btn">
+            + Add Drink
+          </button>
+
+        </form>
+
+      </section>
+
+      <!-- DAILY LOG -->
+      <section class="panel">
+
+        <h2>Today's Drink Log</h2>
+
+        <div id="drinkLog" class="drink-log">
+          <p class="muted">Belum ada minuman yang dicatat.</p>
+        </div>
+
+      </section>
+
+      <!-- WEEKLY SUMMARY -->
+      <section class="panel">
+
+        <h2>Weekly Summary 📊</h2>
+        <p class="muted">
+          Ringkasan konsumsi minuman selama tujuh hari terakhir.
+        </p>
+
+        <div class="weekly-stats">
+          <div class="stat-card">
+            <span>Weekly Average</span>
+            <strong id="weeklyAverage">0 mL</strong>
+          </div>
+
+          <div class="stat-card">
+            <span>Best Day</span>
+            <strong id="bestDay">-</strong>
+          </div>
+
+          <div class="stat-card">
+            <span>Days Logged</span>
+            <strong id="daysLogged">0 / 7</strong>
+          </div>
+        </div>
+
+        <div id="weeklyChart" class="weekly-chart"></div>
+
+      </section>
+
+      <p class="disclaimer">
+        Hydration Tracker merupakan alat edukasi dan pencatatan,
+        bukan alat diagnosis atau pengganti konsultasi medis.
+        Kebutuhan cairan dapat berubah sesuai aktivitas, cuaca,
+        kondisi kesehatan, dan faktor individual. Jangan memaksakan
+        minum berlebihan untuk mengejar target.
+      </p>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
