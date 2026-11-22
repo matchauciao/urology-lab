@@ -1,0 +1,13 @@
+
+.module-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: inherit;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.module-link:hover {
+  text-decoration: underline;
+}
