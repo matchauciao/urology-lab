@@ -529,3 +529,18 @@ footer {
 .module-link:hover {
   text-decoration: underline;
 }
+/* Navigation link untuk fitur tambahan */
+nav a {
+  display: inline-block;
+  padding: 14px 20px;
+  border-radius: 30px;
+  color: #806b80;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #f5e5f3;
+  color: #a059a0;
+}
